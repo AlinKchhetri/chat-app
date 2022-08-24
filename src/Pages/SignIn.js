@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import UserContext from '../context/UserContext'
 import grp from '../assets/images/grp.gif'
 import '../App.css'
+import {FcGoogle} from 'react-icons/fc'
 import Stack from 'react-bootstrap/Stack';
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
 import { app } from '../firebase';
@@ -54,14 +55,15 @@ const SignIn = () => {
     return (
       <div className="login-page">
         <div className="hero-container">
-        <Stack gap={3}>
-          <strong style={{fontSize: '1rem', color: 'white'}}>Connect with the team 
+        <Stack gap={3} className="stack">
+          <strong className="hero-title">Connect with the team 
             Anywhere, Everywhere
           </strong>
         <img src={grp} alt="" width="50%" className="gif"/>
     </Stack>
     </div>
         <div className="login-container">
+        
         {children}
         </div>
       </div>
@@ -73,8 +75,8 @@ const SignIn = () => {
       {
         userLog ? (
           <LoginPage>
-        <button >
-          <NavLink to="/chat">Get Started</NavLink>
+        <button className="btn btn-primary" style={{padding: '10px'}}>
+          <NavLink to="/chat" style={{color:'white', textDecoration: 'none'}}>Get Started</NavLink>
         </button>
           </LoginPage>
         )
@@ -82,8 +84,9 @@ const SignIn = () => {
           (<div>
             {/* <GoogleLogin/> */}
             <LoginPage>
-            <button onClick={login}>
-              login
+            <button onClick={login} className="btn btn-light" style={{padding: '10px'}}>
+            <FcGoogle size={40} style={{margin: '8px'}}/>
+              Sign in with Google
             </button>
             </LoginPage>
           </div>)

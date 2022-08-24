@@ -38,7 +38,7 @@ const ChatBody = () => {
         messages.map((b) => {
           return (
             <div key={b.id} className={user.uid === b.userId ? "user-message" : "other-message"} >
-              <img src={b.image} alt="" width="25" style={{ borderRadius: "20px" }} />
+              {user.uid !== b.userId && <img src={b.image} alt="" width="25" style={{ borderRadius: "20px" }} />}
               {/* <span style={{ fontSize: "10px" }}>{b.userName}</span> */}
               <div className={user.uid === b.userId ? "user-message-box" : "other-message-box"}>
                 {user.uid !== b.userId && <span style={{ justifyContent: 'flex-start', alignSelf: 'flex-start', fontWeight: 'bold', fontSize: '10px' }}>{b.userName}</span>}
